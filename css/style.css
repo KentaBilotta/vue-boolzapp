@@ -36,3 +36,20 @@
     outline: none;
     border: none;
 }
+
+.relative-last-time{
+    position: relative;
+}
+
+.last-time{
+    font-size: 0.7rem;
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+
+.chat-list{
+    max-height: 70%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
