@@ -8,11 +8,67 @@
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <div class="container-fluid cont-all">
+        <!-- parte di background -->
+        <div class="row top-bg"></div>
+        <div class="row bottom-bg"></div>
+
+        <!-- contenitore principale -->
+        <div class="container main-box">
+            <div class="row h-100 d-flex justify-content-center">
+
+                <!-- parte sinistra del contenitore principale -->
+                <div class="col-4 h-100 bg-light">
+
+                </div>
+
+                <!-- parte destra del contenitore principale -->
+                <div class="col-6 border border-secondary h-100 bg-light">
+                    <!-- info utente -->
+                    <div class="row user-space my-grey">
+                        <div class="col-1 d-flex justify-content-center align-items-center h-100">
+                            <img src="img/avatar_1.jpg" alt="user-img" class="rounded-circle" style="height: 80%">
+                        </div>
+                        <div class="col-9 h-100">
+                            <div class="row fw-semibold p-1">Michele</div>
+                            <div class="row p-1 fw-light" style="font-size: 0.9rem">Ultimo accesso alle 12.00</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-around mt-4">
+                                <i class="text-secondary fw-bold fs-5 w-25 fa-solid fa-magnifying-glass"></i>
+                                <i class="text-secondary fw-bold fs-5 w-25 fa-solid fa-paperclip"></i>
+                                <i class="text-secondary fw-bold fs-5 w-25 fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- contenitore chat -->
+                    <div class="row chat" style="background-image: url('mine\ copia.jpg')"></div>
+                    
+                    <!-- spazio per invio messaggi -->
+                    <div class="row user-space my-grey justify-content-around">
+                        <div class="col-1 d-flex justify-content-center align-items-center">
+                            <i class="fs-5 fa-regular fa-face-smile"></i>
+                        </div>
+                        <div class="col-9 bg-white m-2 rounded d-flex justify-content-center align-items-center">
+                            <input type="text" class="messaggio w-100" placeholder="Scrivi un messaggio">
+                        </div>
+                        <div class="col-1 d-flex justify-content-center align-items-center">
+                            <i class="fs-5 fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- fine contenitore principale -->
+
+    </div>
     
 </body>
 </html>
