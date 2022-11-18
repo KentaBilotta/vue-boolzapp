@@ -51,4 +51,5 @@
 
 .message-line{
     background-color: #d5f9ba;
+    min-height: 50px;
 }
