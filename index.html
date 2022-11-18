@@ -8,8 +8,7 @@
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
-    <!-- style -->
+    <!-- my style -->
     <link rel="stylesheet" href="css/style.css">
 
     <!-- icons -->
@@ -17,8 +16,7 @@
 
     <!-- vue script -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" defer></script>
-
-    <!-- script -->
+    <!-- my script -->
     <script src="js/script.js" defer></script>
 </head>
 <body>
@@ -36,10 +34,10 @@
                     <!-- info utente -->
                     <div class="row user-space my-grey">
                         <div class="col-2 d-flex justify-content-center align-items-center h-100">
-                            <img src="img/avatar_io.jpg" alt="user-img" class="rounded-circle" style="height: 80%">
+                            <img src="img/avatar_io.jpg" alt="user-img" class="rounded-circle" style="width: 50px;">
                         </div>
                         <div class="col-7 h-100 d-flex align-items-center">
-                            <div class="row fw-semibold p-1">Anna</div>
+                            <div class="row fw-semibold p-1">Kenta</div>
                         </div>
                         <div class="col-3">
                             <div class="row justify-content-around mt-4">
@@ -56,7 +54,7 @@
                         </div>
                         <div class="col-9 h-100 m-2">
                             <div class="row">Ricevi notifiche di nuovi messaggi</div>
-                            <div class="row fw-light text-decoration-underline text-secondary" style="font-size: 0.9rem">Attiva notifiche desktop</div>
+                            <div class="row fw-light text-decoration-underline text-secondary" style="font-size: 0.9rem; cursor: pointer;">Attiva notifiche desktop</div>
                         </div>
                     </div>
                     <!-- barra di ricerca -->
@@ -71,13 +69,13 @@
                     <!-- elenco delle chat -->
                     <div class="chat-list h-100">
 
-                        <div class="row bg-white border-bottom border-light" style="height: 60px;" v-for="contact in contacts">
+                        <div class="row border-bottom border-light my-lightgrey" style="height: 60px; cursor: pointer;" v-for="(contact, index) in contacts" @click="setActiveContact(index)">
                             <div class="col-2 d-flex justify-content-center align-items-center h-100">
                                 <img v-bind:src="'img/avatar'+contact.avatar+'.jpg'" alt="user-img" class="rounded-circle" style="height: 80%">
                             </div>
                             <div class="col-10 h-100 mt-2 relative-last-time">
                                 <div class="row fw-semibold">{{ contact.name }}</div>
-                                <div class="row fw-light text-secondary" style="font-size: 0.8rem">Ultimo messaggio inviato</div>
+                                <div class="row fw-light text-secondary" style="font-size: 0.8rem">{{ contact.messages[contact.messages.length - 1].message }}</div>
                                 <div class="last-time text-secondary">12.00</div>
                             </div>    
                         </div>
@@ -90,11 +88,11 @@
                 <div class="col-6 border border-secondary h-100 bg-light">
                     <!-- info di chi ti scrive -->
                     <div class="row user-space my-grey">
-                        <div class="col-1 d-flex justify-content-center align-items-center h-100">
-                            <img src="img/avatar_1.jpg" alt="user-img" class="rounded-circle" style="height: 80%">
+                        <div class="col-2 d-flex justify-content-center align-items-center h-100">
+                            <img :src="'img/avatar' + contacts[activeIndex].avatar + '.jpg'" alt="user-img" class="rounded-circle" style="width: 50px;">
                         </div>
-                        <div class="col-9 h-100">
-                            <div class="row fw-semibold p-1">Michele</div>
+                        <div class="col-8 h-100">
+                            <div class="row fw-semibold p-1">{{ contacts[activeIndex].name }}</div>
                             <div class="row p-1 fw-light" style="font-size: 0.9rem">Ultimo accesso alle 12.00</div>
                         </div>
                         <div class="col-2">
@@ -108,17 +106,13 @@
 
                     <!-- contenitore chat -->
                     <div class="row chat" style="background-image: url('img/mine.jpg');">
-                        <div class="col-12">
-                            <div class="row p-1 justify-content-end">
-                                <div class="col-8 d-flex justify-content-end">
-                                    <div class="message-line p-2 rounded">Lorem ipsum</div>
-                                </div>
+                        <div class="col-12 d-flex flex-column">
+                            
+                            <div class="message" v-for="objMessage in contacts[activeIndex].messages" :class="'message-' + objMessage.status">
+                                {{ objMessage.message }}
+                                <div class="text-secondary" style="font-size: 0.7rem;">{{ objMessage.date }}</div>
                             </div>
-                            <div class="row p-1 justify-content-start h-auto">
-                                <div class="col-8">
-                                    <div class="message-line p-2 rounded bg-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     

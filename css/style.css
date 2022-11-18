@@ -51,5 +51,25 @@
 
 .message-line{
     background-color: #d5f9ba;
-    min-height: 50px;
+}
+
+.message{
+    width: fit-content;
+    padding: .5rem;
+    border-radius: 10px;
+    margin: 5px;
+    max-width: 60%;
+}
+
+.message-sent{
+    background-color: #d5f9ba;
+    align-self: flex-end;
+}
+
+.message-received{
+    background-color: white;
+}
+
+.my-lightgrey:hover{
+    background-color: lightgrey;
 }

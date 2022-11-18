@@ -164,8 +164,14 @@ new Vue({
                     },
                 ],
             },
-        ]
+        ],
+        activeIndex: 0,
 
+    },
+    methods: {
+        setActiveContact(i) {
+            this.activeIndex = i;
+        }
     }
 
  });
