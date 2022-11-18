@@ -22,13 +22,13 @@
     <script src="js/script.js" defer></script>
 </head>
 <body>
-    <div class="container-fluid cont-all">
+    <div class="container-fluid cont-all position-relative">
         <!-- parte di background -->
         <div class="row top-bg"></div>
         <div class="row bottom-bg"></div>
 
         <!-- contenitore principale -->
-        <div class="container main-box">
+        <div class="container main-box position-absolute top-50 start-50 translate-middle" id="root">
             <div class="row h-100 d-flex justify-content-center">
 
                 <!-- parte sinistra del contenitore principale -->
@@ -71,12 +71,12 @@
                     <!-- elenco delle chat -->
                     <div class="chat-list h-100">
 
-                        <div class="row bg-white border-bottom border-light" style="height: 60px">
+                        <div class="row bg-white border-bottom border-light" style="height: 60px;" v-for="contact in contacts">
                             <div class="col-2 d-flex justify-content-center align-items-center h-100">
-                                <img src="img/avatar_6.jpg" alt="user-img" class="rounded-circle" style="height: 80%">
+                                <img v-bind:src="'img/avatar'+contact.avatar+'.jpg'" alt="user-img" class="rounded-circle" style="height: 80%">
                             </div>
                             <div class="col-10 h-100 mt-2 relative-last-time">
-                                <div class="row fw-semibold">Giorgia</div>
+                                <div class="row fw-semibold">{{ contact.name }}</div>
                                 <div class="row fw-light text-secondary" style="font-size: 0.8rem">Ultimo messaggio inviato</div>
                                 <div class="last-time text-secondary">12.00</div>
                             </div>    
@@ -107,7 +107,25 @@
                     </div>
 
                     <!-- contenitore chat -->
-                    <div class="row chat" style="background-image: url('img/mine.jpg');"></div>
+                    <div class="row chat" style="background-image: url('img/mine.jpg');">
+                        <div class="row p-1 justify-content-end" style="min-height: 50px">
+                            <div class="col-8 d-flex justify-content-end">
+                                <div class="message-line p-2 rounded">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, sed aliquid! Ab sapiente.</div>
+                            </div>
+                        </div>
+                        <div class="row p-1 justify-content-start" style="min-height: 50px">
+                            <div class="col-8">
+                                <div class="message-line p-2 rounded bg-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, sed aliquid! Ab sapiente.</div>
+                            </div>
+                        </div>
+                        <div class="row p-1 justify-content-end" style="min-height: 50px">
+                            <div class="col-8 d-flex justify-content-end">
+                                <div class="message-line p-2 rounded">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, sed aliquid! Ab sapiente.</div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
                     
                     <!-- spazio per invio messaggi -->
                     <div class="row user-space my-grey justify-content-around">
