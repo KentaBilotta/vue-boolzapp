@@ -174,11 +174,6 @@ new Vue({
             this.activeIndex = i;
         },
         sendMessage() {
-            // {
-            //     date: '10/01/2020 15:30:55',
-            //     message: 'Hai portato a spasso il cane?',
-            //     status: 'sent'
-            // }
             this.contacts[this.activeIndex].messages.push({
                 date: new Date().toISOString().replaceAll("-", "/").replaceAll("T", " ").split(".")[0],
                 message: this.newMessage,
