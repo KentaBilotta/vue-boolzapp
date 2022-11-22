@@ -167,6 +167,7 @@ new Vue({
         ],
         activeIndex: 0,
         newMessage: "",
+        searchString: "",
 
     },
     methods: {
@@ -187,6 +188,15 @@ new Vue({
                     status: 'received'
                 });
             }, 1000)
+        },
+        filterContacts() {
+            this.contacts.forEach(objContact => {
+                if (objContact.name.trim().toLowerCase().includes(this.searchString.trim().toLowerCase())) {
+                    objContact.visible = true;
+                } else {
+                    objContact.visible = false;
+                }
+            })
         }
     }
  });

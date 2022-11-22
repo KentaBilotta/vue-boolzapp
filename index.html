@@ -63,13 +63,13 @@
                             <i class="text-secondary fw-bold w-25 fa-solid fa-magnifying-glass"></i>
                         </div>
                         <div class="col-10 bg-white my-grey p-1">
-                            <input type="text" class="cerca w-100" placeholder="Cerca o inizia una nuova chat" style="font-size: 0.9rem">
+                            <input type="text" class="cerca w-100" placeholder="Cerca o inizia una nuova chat" v-model="searchString" @keyup="filterContacts" style="font-size: 0.9rem">
                         </div>
                     </div>
                     <!-- elenco delle chat -->
                     <div class="chat-list h-100">
 
-                        <div class="row border-bottom border-light my-lightgrey" style="height: 60px; cursor: pointer;" v-for="(contact, index) in contacts" @click="setActiveContact(index)">
+                        <div class="row border-bottom border-light my-lightgrey" style="height: 60px; cursor: pointer;" v-for="(contact, index) in contacts" v-show="contact.visible" @click="setActiveContact(index)">
                             <div class="col-2 d-flex justify-content-center align-items-center h-100">
                                 <img v-bind:src="'img/avatar'+contact.avatar+'.jpg'" alt="user-img" class="rounded-circle" style="height: 80%">
                             </div>
@@ -109,7 +109,7 @@
                         <div class="col-12 d-flex flex-column">
                             
                             <div class="message" v-for="objMessage in contacts[activeIndex].messages" :class="'message-' + objMessage.status">
-                                {{ objMessage.message }}
+                                <div class="d-flex justify-content-between">{{ objMessage.message }}<i class="fa-solid fa-chevron-down text-secondary m-2"></i></div>
                                 <div class="text-secondary" style="font-size: 0.7rem;">{{ objMessage.date }}</div>
                             </div>
                             
